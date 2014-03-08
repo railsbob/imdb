@@ -1,29 +1,21 @@
 # Imdb
 
-TODO: Write a gem description
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'imdb'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install imdb
+This gem allows you to parse the plain text IMDB data files. The files can be obtained from http://www.imdb.com/interfaces.
 
 ## Usage
 
-TODO: Write usage instructions here
+		parser = Imdb::Parser.new(:ratings, '/path/to/ratings.list')
+		movies = parser.search 'the lord of the rings'
+		
+		movies.length
+		#=> 3
+		
+		movies[0].name
+		#=> The Lord of the Rings: The Return of the King
+		
+		movies[0].rating
+		#=> 8.9
+		
+		movies[0].year
+		#=> 2003
 
-## Contributing
-
-1. Fork it ( http://github.com/<my-github-username>/imdb/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
